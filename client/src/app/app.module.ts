@@ -7,9 +7,9 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TokenInterceptor } from './core/interceptors/token.interceptor';
-import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { JWTTokenInterceptor } from './core/interceptors/jwt-token.interceptor';
 import { SharedModule } from './components/shared/shared.module';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { SharedModule } from './components/shared/shared.module';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
+      useClass: JWTTokenInterceptor,
       multi: true
     },
     {

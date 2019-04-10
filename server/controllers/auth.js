@@ -118,7 +118,8 @@ module.exports = {
           token,
           userId: user._id.toString(),
           username: user.username,
-          isAdmin: user.roles.indexOf('Admin') != -1
+          isAdmin: user.roles.indexOf('Admin') != -1,
+          status: user.status
         });
       })
       .catch(error => {

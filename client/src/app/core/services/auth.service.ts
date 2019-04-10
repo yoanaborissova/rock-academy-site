@@ -20,6 +20,14 @@ export class AuthService {
     return localStorage.getItem('username');
   }
 
+  get id () {
+    return localStorage.getItem('userId');
+  }
+
+  get status () {
+    return localStorage.getItem('status');
+  }
+
   signUp(body: Object) {
     return this.http.post(this.BASE_URL + 'signup', body);
   }

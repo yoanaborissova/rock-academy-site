@@ -23,7 +23,6 @@ export class BandsListComponent implements OnInit {
     this.bandsService.getAllBands()
       .subscribe((data) => {
         this.allBands = data['resBands'];
-        console.log(this.allBands);
       })
 
       this.isAdmin = this.authService.isAdmin();  

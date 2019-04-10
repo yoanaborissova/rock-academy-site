@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'about', component: AboutComponent},
   { path: 'auth', loadChildren: './components/authentication/authentication.module#AuthenticationModule' },
-  { path: 'posts',  loadChildren: './components/posts/posts.module#PostsModule' },
   { path: 'bands',  loadChildren: './components/bands/bands.module#BandsModule' },
   { path: 'articles',  loadChildren: './components/articles/articles.module#ArticlesModule' },
 ];
