@@ -1,0 +1,38 @@
+<article class="post" *ngIf="user">
+    <div class="post-content">
+      <div class="bandInfo">
+        <h2>{{user['username']}}</h2>
+        <h4>{{user['status']}}</h4>
+      </div>
+      <img src="{{user['profilePicture']}}">
+      <div class="bandInfo">
+          {{user['about']}}
+      </div>
+      <br>
+      <h3>Instruments:</h3>
+      <div class="bandInfo" *ngIf="user['instruments']">
+            <ul *ngFor="let instrument of user['instruments']">
+            <li>
+              {{instrument}}
+            </li>
+          </ul>
+      </div>
+      <br>
+      <h3>Bands:</h3>
+      <div class="bandInfo" *ngIf="bands">
+          <ul *ngFor="let band of bands">
+            <li>
+              <a class="member" [routerLink]="[ '/bands/details', band['id'] ]">{{band['name']}}</a>
+            </li>
+          </ul>
+      </div>
+      <br>
+      <div class="details">
+        <div class="controls">
+          <ul>
+            <li class="action"><a id="adminBtn" [routerLink]="[ '/auth/profile/edit', user[_id] ]" class="button">Edit</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>

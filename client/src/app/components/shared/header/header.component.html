@@ -1,0 +1,13 @@
+<header>
+  <span class="logo"><a id="logo" [routerLink]="[ '/home' ]">Rock Academy Dupnitsa</a></span>
+  <p *ngIf="isLoggedIn">Welcome, {{username}}!</p>
+  <li>                    
+      <a class="button" [routerLink]="[ '/articles' ]">News</a>
+      <a class="button" [routerLink]="[ '/bands' ]">Bands</a>
+      <a *ngIf="isLoggedIn" class="button" [routerLink]="[ '/apply' ]">Apply</a>
+      <a class="button" [routerLink]="[ '/about' ]">About us</a>
+      <a *ngIf="isLoggedIn" class="button" (click)="logout()">Logout</a>
+      <a *ngIf="isLoggedOut" class="button" [routerLink]="[ '/auth/login' ]">Login</a>
+      <a *ngIf="isLoggedOut" class="button" [routerLink]="[ 'auth/register' ]">Register</a>
+  </li>
+</header>

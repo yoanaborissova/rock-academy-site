@@ -1,0 +1,17 @@
+<article class="post">
+  <div class="col thumbnail">
+    <img src="{{band['imageUrl']}}">
+  </div>
+  <div class="post-content">
+    <div class="bandInfo">
+      {{band['name']}}
+    </div>
+    <div class="details">
+      <div class="controls">
+        <ul>
+          <li class="action"><a [routerLink]="[ '/bands/details', band['_id'] ]" class="button">Details</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>

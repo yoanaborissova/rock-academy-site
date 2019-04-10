@@ -1,0 +1,28 @@
+<section>
+    <div class="form">
+      <form #f="ngForm" (ngSubmit)="createBand()">
+        <p class="field">
+          <label for="username" id="">Name</label>
+          <span class="input">
+            <input type="text" name="name" id="name" placeholder="Name" ngModel />
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field">
+          <label for="description">Description</label>
+          <span class="input">
+            <textarea type="description" name="description" id="description" placeholder="Description" ngModel></textarea>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field">
+          <label for="imageUrl">Image Url</label>
+          <span class="input">
+            <input type="text" name="imageUrl" placeholder="Image Url" ngModel/>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <button class="button" [disabled]="f.invalid" type="submit">Add Band</button>
+      </form>
+    </div>
+  </section>

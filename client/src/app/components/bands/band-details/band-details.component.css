@@ -1,0 +1,13 @@
+img {
+    width: 50%;
+    margin: 10pt;
+}
+
+#adminBtn {
+    background-color: black;
+    color: chocolate;
+}
+
+.member {
+    color: black;
+}

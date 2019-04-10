@@ -1,0 +1,23 @@
+<section>
+    <div class="form">
+      <form #f="ngForm" (ngSubmit)="login()">
+        <p class="field">
+          <label for="username" id="">Username</label>
+          <span class="input">
+            <input type="text" name="username" id="username" placeholder="Username" ngModel />
+            <span class="actions"></span>
+            <i class="fas fa-user"></i>
+          </span>
+        </p>
+        <p class="field">
+          <label for="password">Password</label>
+          <span class="input">
+            <input type="password" name="password" id="password" placeholder="Password" ngModel />
+            <span class="actions"></span>
+            <i class="fas fa-key"></i>
+          </span>
+        </p>
+        <button class="button" [disabled]="f.invalid" type="submit">Login</button>
+      </form>
+    </div>
+</section>

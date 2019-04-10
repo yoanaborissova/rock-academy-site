@@ -1,0 +1,42 @@
+<section>
+  <div class="form">
+    <form #f="ngForm" (ngSubmit)="register()">
+      <p class="field">
+        <label for="username" id="">Username</label>
+        <span class="input">
+          <input type="text" name="username" id="username" placeholder="Username" ngModel />
+          <span class="actions"></span>
+        </span>
+      </p>
+      <p class="field">
+        <label for="password">Password</label>
+        <span class="input">
+          <input type="password" name="password" id="password" placeholder="Password" ngModel />
+          <span class="actions"></span>
+        </span>
+      </p>
+      <p class="field">
+        <label for="repeatPassword">Repeat Password</label>
+        <span class="input">
+          <input type="password" name="repeatPassword" placeholder="Repeat Password" ngModel />
+          <span class="actions"></span>
+        </span>
+      </p>
+      <p class="field">
+        <label for="repeatPassword">About</label>
+        <span class="input">
+          <textarea type="text" name="textarea" placeholder="Write a few words about you." ngModel></textarea>
+          <span class="actions"></span>
+        </span>
+      </p>
+      <p class="field">
+        <label for="repeatPassword">Repeat Password</label>
+        <span class="input">
+          <input type="text" name="profilePicture" placeholder="Profile picture url" ngModel />
+          <span class="actions"></span>
+        </span>
+      </p>
+      <button class="button" [disabled]="f.invalid" type="submit">Register</button>
+    </form>
+  </div>
+</section>

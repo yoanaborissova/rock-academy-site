@@ -1,0 +1,11 @@
+  <main>
+    <h1>Welcome to Rock Academy Dupnitsa!</h1>
+    <span></span>
+    <h5 *ngIf="isLoggedOut">Join us, learn how to play your favourite instrument and become member of a band!</h5>
+    <li *ngIf="isLoggedOut">
+        <a class="button-body" [routerLink]="[ '/auth/login' ]">Login</a>
+        <a class="button-body" [routerLink]="[ '/auth/register' ]">Register</a>
+    </li>
+    <img width="500" src="http://cortguitars.cafe24.com/uFiles//product/1261/model/X100(OPBK).png" alt="">
+  </main>
+
