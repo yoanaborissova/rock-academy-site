@@ -40,6 +40,10 @@ export class AuthService {
     return this.http.get(this.BASE_URL + 'profile/' + id);
   }
 
+  editUserProfile(id, body){
+    return this.http.post(this.BASE_URL + 'profile/edit/' + id, body);
+  }
+
   isAuthenticated() {
     return this.token !== null;
   }

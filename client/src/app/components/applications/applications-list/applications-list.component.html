@@ -1,3 +1,8 @@
-<p>
-  applications-list works!
-</p>
+<section id="viewCatalog">
+  <div class="posts">
+      <app-application-info *ngFor="let application of applications"
+        [application]="application"
+        (approveEmitter)="approve($event)"
+      ></app-application-info>
+  </div>
+</section>

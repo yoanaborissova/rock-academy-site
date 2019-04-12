@@ -4,6 +4,7 @@ const {
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const encryption = require('../util/encryption');
+const Band = require('../models/Band');
 
 function validateUser(req, res) {
   const errors = validationResult(req);
@@ -155,7 +156,7 @@ module.exports = {
     User.findById(userId)
       .then((user) => {
         user.about = req.body.about;
-        user.imageUrl = req.body.imageUrl;
+        user.profilePicture = req.body.profilePicture;
         user.instruments = req.body.instruments;
 
         user.save()
@@ -175,29 +176,25 @@ module.exports = {
           })
       });
   },
-  getUsers: (req, res) => {
-    User.find()
-    .then((allUsers) => {
-      let users = [];
-
-      for (const user of allUsers) {
-        if (user.status === 'Student' || user.status === 'Musician'){
-          users.push(user);
-        }
-      }
+  getUsers: async (req, res) => {
+    try{
+      let users = await User.find(
+        { 'status': { $in: [ 'Student', 'Musician' ] },
+        'bands': { $nin: [ req.params.id ] }
+       });
 
       res.status(200)
       .json({
         message: 'Users fetched successfully.',
         users,
       })
-    })
-    .catch((error) => {
+
+    } catch(error) {
       res.status(500)
         .json({
           message: 'Something went wrong.',
           error
         })
-    });
+    }
   }
 };

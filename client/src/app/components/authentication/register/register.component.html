@@ -1,27 +1,37 @@
 <section>
   <div class="form">
-    <form #f="ngForm" (ngSubmit)="register()">
+    <form #form="ngForm" (ngSubmit)="register()">
       <p class="field">
         <label for="username" id="">Username</label>
         <span class="input">
-          <input type="text" name="username" id="username" placeholder="Username" ngModel />
+          <input type="text" name="username" id="username" placeholder="Username" required ngModel />
           <span class="actions"></span>
         </span>
       </p>
-      <p class="field">
-        <label for="password">Password</label>
-        <span class="input">
-          <input type="password" name="password" id="password" placeholder="Password" ngModel />
-          <span class="actions"></span>
-        </span>
-      </p>
-      <p class="field">
-        <label for="repeatPassword">Repeat Password</label>
-        <span class="input">
-          <input type="password" name="repeatPassword" placeholder="Repeat Password" ngModel />
-          <span class="actions"></span>
-        </span>
-      </p>
+      <p class="error" *ngIf="form.controls.username?.touched && form.controls.username.errors?.required">This field is
+        required.</p>
+        <p class="field">
+          <label for="password">Password</label>
+          <span class="input">
+            <input type="password" name="password" id="password" placeholder="Password" required minlength="6"
+              ngModel />
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="error" *ngIf="form.controls.password?.touched && form.controls.password.errors?.required">This field
+          is required.</p>
+        <p class="error" *ngIf="form.controls.password?.touched && form.controls.password.errors?.minlength">Password
+          must be at least 6 characters long.</p>
+        <p class="field">
+          <label for="repeatPassword">Repeat Password</label>
+          <span class="input">
+            <input type="password" name="repeatPassword" placeholder="Repeat Password" ngModel required />
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="error" *ngIf="form.controls.repeatPassword?.touched && form.controls.repeatPassword.errors?.required">
+          This field is required.</p>
+        <p class="error" *ngIf="form.controls.repeatPassword?.dirty && form.controls.password?.value != form.controls.repeatPassword?.value">Passwords don't match.</p>
       <p class="field">
         <label for="repeatPassword">About</label>
         <span class="input">
@@ -30,13 +40,13 @@
         </span>
       </p>
       <p class="field">
-        <label for="repeatPassword">Repeat Password</label>
+        <label for="repeatPassword">Image URL</label>
         <span class="input">
           <input type="text" name="profilePicture" placeholder="Profile picture url" ngModel />
           <span class="actions"></span>
         </span>
       </p>
-      <button class="button" [disabled]="f.invalid" type="submit">Register</button>
+      <button id="registerButton" class="button" [disabled]="form.invalid" type="submit">Register</button>
     </form>
   </div>
 </section>

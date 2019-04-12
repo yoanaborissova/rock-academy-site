@@ -1,0 +1,32 @@
+<section>
+    <div class="form">
+      <form #form="ngForm" (ngSubmit)="editProfile()" *ngIf="user">
+        <p class="field">
+          <label for="repeatPassword">About</label>
+          <span class="input">
+            <textarea type="text" name="about" placeholder="Write a few words about you." [(ngModel)]="user['about']" ngModel></textarea>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field">
+          <label for="repeatPassword">Image URL</label>
+          <span class="input">
+            <input type="text" name="profilePicture" placeholder="Profile picture url" [(ngModel)]="user['profilePicture']" ngModel />
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field" *ngIf="isNotGuest">
+            <label for="instruments" id="">Instruments you want to learn</label>
+            <span class="input">
+                <textarea type="text" rows="4" name="instruments" id="content" pattern="^(\w+[, ]+)*\w+$" placeholder="Please write the instruments splitted by coma and space" required [(ngModel)]="user['instruments']" ngModel></textarea>
+                <span class="actions"></span>
+            </span>
+          </p>
+          <p class="error" *ngIf="form.controls.instruments?.touched && form.controls.instruments?.errors?.required">This field is
+              required.</p>
+          <p class="error" *ngIf="form.controls.instruments?.touched && form.controls.instruments?.errors?.pattern">Please write the instruments spliited by ' ,'</p>
+        <button id="registerButton" class="button" [disabled]="form.invalid" type="submit">Save</button>
+      </form>
+    </div>
+  </section>
+  

@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('f') registerForm: NgForm;
+  @ViewChild('form') registerForm: NgForm;
 
   constructor(
     private authService: AuthService,
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
       .signUp(this.registerForm.value)
       .subscribe((data) => {
         console.log(data);
-        this.router.navigate([ '/login' ]);
+        this.router.navigate([ '/auth/login' ]);
       })
   }
 }

@@ -11,10 +11,11 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class HeaderComponent implements OnInit, DoCheck {
   username: string = '';
   id: string;
-  studentStatus: boolean;
+  guestStatus: boolean;
   isLoggedIn: boolean;
   isLoggedOut: boolean;
   status: string;
+  isAdmin: boolean;
 
   constructor(
     private authService: AuthService,
@@ -30,12 +31,13 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.isLoggedIn = this.authService.isAuthenticated();
     this.isLoggedOut = this.authService.isAnonymous();
     this.status = this.authService.status;
+    this.isAdmin = this.authService.isAdmin();
 
-    if (this.authService.status == 'Student'){
+    if (this.authService.status == 'Guest'){
       
-      this.studentStatus = true;
+      this.guestStatus = true;
     } else {
-      this.studentStatus = false;
+      this.guestStatus = false;
     }
   }
 

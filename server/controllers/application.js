@@ -5,6 +5,8 @@ module.exports = {
     createApplication: (req, res) => {
         const applicationBody = req.body;
 
+        applicationBody['instruments'] = applicationBody['instruments'].split(', ');
+
         Application.create(applicationBody)
             .then((application) => {
                 res.status(200)
@@ -24,6 +26,7 @@ module.exports = {
     getAllApplications: (req, res) => {
         Application.find()
         .then((applications) => {
+            applications = applications.sort((a, b) => (b.date - a.date));
             res.status(200)
                 .json({
                     message: 'Applications fetched successfully.',

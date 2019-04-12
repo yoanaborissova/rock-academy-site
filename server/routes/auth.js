@@ -19,6 +19,6 @@ router.post('/signup',
 router.post('/signin', authController.signIn);
 router.get('/profile/:id', authController.viewProfile);
 router.post('/profile/edit/:id', authController.editProfile);
-router.get('/users/approved', authController.getUsers);
+router.get('/users/available/:id', authController.getUsers);
 
 module.exports = router;

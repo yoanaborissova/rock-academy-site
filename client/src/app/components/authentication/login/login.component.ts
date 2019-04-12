@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('form') loginForm: NgForm;
 
   constructor(
     private authService: AuthService,

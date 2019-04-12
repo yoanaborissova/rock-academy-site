@@ -12,7 +12,7 @@
       <div class="bandInfo" *ngIf="band['members']">
           <ul *ngFor="let member of band['members']">
             <li>
-              <a class="member" [routerLink]="[ '/auth/user/profile', member['_id'] ]">{{member['username']}}</a>
+              <a class="member" [routerLink]="[ 'profile/user', member['_id'] ]">{{member['username']}}</a>
             </li>
           </ul>
       </div>

@@ -9,7 +9,7 @@
           {{user['about']}}
       </div>
       <br>
-      <h3>Instruments:</h3>
+      <h3 *ngIf="isNotGuest">Instruments:</h3>
       <div class="bandInfo" *ngIf="user['instruments']">
             <ul *ngFor="let instrument of user['instruments']">
             <li>
@@ -17,8 +17,8 @@
             </li>
           </ul>
       </div>
-      <br>
-      <h3>Bands:</h3>
+      <br *ngIf="isNotGuest">
+      <h3 *ngIf="isNotGuest && hasBands">Bands:</h3>
       <div class="bandInfo" *ngIf="bands">
           <ul *ngFor="let band of bands">
             <li>
@@ -26,11 +26,11 @@
             </li>
           </ul>
       </div>
-      <br>
-      <div class="details">
+      <br *ngIf="isNotGuest && hasBands">
+      <div class="details" *ngIf="isOwner">
         <div class="controls">
           <ul>
-            <li class="action"><a id="adminBtn" [routerLink]="[ '/auth/profile/edit', user[_id] ]" class="button">Edit</a></li>
+            <li class="action"><a id="adminBtn" [routerLink]="[ '/profile/edit', user['_id'] ]" class="button">Edit</a></li>
           </ul>
         </div>
       </div>

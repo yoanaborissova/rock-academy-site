@@ -1,0 +1,28 @@
+<section>
+  <div class="form">
+    <form #form="ngForm" (ngSubmit)="createApplication()">
+      <p class="field">
+        <label for="content" id="">Content</label>
+        <span class="input">
+          <textarea type="text" rows="5" name="content" id="content" placeholder="Tell us why you want to join us" required ngModel></textarea>
+          <span class="actions"></span>
+        </span>
+      </p>
+      <p class="error" *ngIf="form.controls.content?.touched && form.controls.content?.errors?.required">This field is
+          required.</p>
+      <p class="field">
+        <label for="instruments" id="">Instruments you want to learn</label>
+        <span class="input">
+            <textarea type="text" rows="4" name="instruments" id="content" pattern="^(\w+[, ]+)*\w+$" placeholder="Please write the instruments splitted by coma and space" required ngModel></textarea>
+            <span class="actions"></span>
+        </span>
+      </p>
+      <p class="error" *ngIf="form.controls.instruments?.touched && form.controls.instruments?.errors?.required">This field is
+          required.</p>
+      <p class="error" *ngIf="form.controls.instruments?.touched && form.controls.instruments?.errors?.pattern">Please write the instruments spliited by ' ,'</p>
+      <input type="hidden" value="{{user}}" name="user" [(ngModel)]="user"/>
+      <button id="registerButton" class="button" [disabled]="form.invalid" type="submit">Apply</button>
+    </form>
+  </div>
+</section>
+

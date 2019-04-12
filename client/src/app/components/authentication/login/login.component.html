@@ -1,23 +1,27 @@
 <section>
     <div class="form">
-      <form #f="ngForm" (ngSubmit)="login()">
+      <form #form="ngForm" (ngSubmit)="login()">
         <p class="field">
           <label for="username" id="">Username</label>
           <span class="input">
-            <input type="text" name="username" id="username" placeholder="Username" ngModel />
+            <input type="text" name="username" id="username" placeholder="Username" required ngModel />
             <span class="actions"></span>
             <i class="fas fa-user"></i>
           </span>
         </p>
+        <p class="error" *ngIf="form.controls.username?.touched && form.controls.username.errors?.required">This field is
+          required.</p>
         <p class="field">
           <label for="password">Password</label>
           <span class="input">
-            <input type="password" name="password" id="password" placeholder="Password" ngModel />
+            <input type="password" name="password" id="password" placeholder="Password" required ngModel />
             <span class="actions"></span>
             <i class="fas fa-key"></i>
           </span>
         </p>
-        <button class="button" [disabled]="f.invalid" type="submit">Login</button>
+        <p class="error" *ngIf="form.controls.password?.touched && form.controls.password.errors?.required">This field
+          is required.</p>
+        <button class="button" [disabled]="form.invalid" type="submit">Login</button>
       </form>
     </div>
 </section>

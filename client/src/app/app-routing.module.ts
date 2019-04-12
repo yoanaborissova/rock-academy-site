@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: 'auth', loadChildren: './components/authentication/authentication.module#AuthenticationModule' },
   { path: 'bands',  loadChildren: './components/bands/bands.module#BandsModule' },
   { path: 'articles',  loadChildren: './components/articles/articles.module#ArticlesModule' },
+  { path: 'applications',  loadChildren: './components/applications/applications.module#ApplicationsModule' },
+  { path: 'profile', loadChildren: './components/profile/profile.module#ProfileModule'}
 ];
 
 @NgModule({
