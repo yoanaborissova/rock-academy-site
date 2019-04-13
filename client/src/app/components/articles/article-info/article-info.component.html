@@ -1,0 +1,24 @@
+<article class="post" *ngIf="article">
+    <div class="col thumbnail">
+      <img src="{{article['imageUrl']}}">
+    </div>
+    <div class="post-content">
+      <div class="bandInfo">
+        <h3>{{article['title']}}</h3>
+        <h5>{{article['date']  | date: 'EEEE, MMMM d, y'}}</h5>
+      </div>
+      <br>
+      <div class="bandInfo">
+        <div class="box">
+          {{article['content'] | slice:0:50}}...
+        </div>      
+      </div>
+      <div class="details">
+        <div class="controls">
+          <ul>
+            <li class="action"><a [routerLink]="[ '/articles/details', article['_id'] ]" class="button">Read More</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>

@@ -17,8 +17,8 @@
             </li>
           </ul>
       </div>
-      <br *ngIf="isNotGuest">
-      <h3 *ngIf="isNotGuest && hasBands">Bands:</h3>
+      <br *ngIf="bands">
+      <h3 *ngIf="bands">Bands:</h3>
       <div class="bandInfo" *ngIf="bands">
           <ul *ngFor="let band of bands">
             <li>
@@ -26,7 +26,7 @@
             </li>
           </ul>
       </div>
-      <br *ngIf="isNotGuest && hasBands">
+      <br *ngIf="bands">
       <div class="details" *ngIf="isOwner">
         <div class="controls">
           <ul>

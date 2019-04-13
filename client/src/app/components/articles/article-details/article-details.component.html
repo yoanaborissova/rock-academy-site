@@ -1,0 +1,27 @@
+<article class="post" *ngIf="article">
+    <div class="post-content">
+      <div class="bandInfo">
+        <h2>{{article['title']}}</h2>
+        <h5>{{article['date']  | date: 'EEEE, MMMM d, y'}}</h5>
+      </div>
+      <img src="{{article['imageUrl']}}">
+      <div class="bandInfo">
+          {{article['content']}}
+      </div>
+      <br>
+      <div class="details" *ngIf="isAdmin">
+        <div class="controls">
+          <ul>
+            <li class="action"><a id="adminBtn" [routerLink]="[ '/articles/edit', article['_id'] ]" class="button">Edit</a></li>
+            <li class="action"><a id="adminBtn" (click)="deleteArticle(article['_id'])" class="button">Delete</a></li>
+          </ul>
+        </div>
+      </div>
+      <h3 *ngIf="comments">Comments:</h3>
+      <app-comment-info *ngFor="let comment of comments" [comment]="comment" (deleteCommentEmitter)="deleteComment($event)"></app-comment-info>
+      <app-comment-create *ngIf="isAuthed" [articleId]="article['_id']" (addCommentEmitter)="addComment($event)">
+        </app-comment-create>
+    </div>
+  </article>
+  
+

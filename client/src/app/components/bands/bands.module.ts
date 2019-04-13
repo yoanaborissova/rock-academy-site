@@ -9,6 +9,7 @@ import { BandsListComponent } from './bands-list/bands-list.component';
 import { BandCreateComponent } from './band-create/band-create.component';
 import { BandDetailsComponent } from './band-details/band-details.component';
 import { BandEditComponent } from './band-edit/band-edit.component';
+import { BandAddMemberComponent } from './band-add-member/band-add-member.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BandEditComponent } from './band-edit/band-edit.component';
     BandInfoComponent,
     BandCreateComponent,
     BandDetailsComponent,
-    BandEditComponent
+    BandEditComponent,
+    BandAddMemberComponent
   ],
   imports: [
     CommonModule,

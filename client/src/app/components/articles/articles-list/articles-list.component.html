@@ -1,3 +1,8 @@
-<p>
-  articles-list works!
-</p>
+<section id="viewCatalog">
+    <div class="posts">
+        <a class="button" id="adminBtn" *ngIf="isAdmin" [routerLink]="[ 'create' ]">Add Article</a>
+        <app-article-info *ngFor="let article of allArticles"
+          [article]="article"
+        ></app-article-info>
+    </div>
+  </section>

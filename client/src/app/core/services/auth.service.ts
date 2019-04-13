@@ -44,6 +44,10 @@ export class AuthService {
     return this.http.post(this.BASE_URL + 'profile/edit/' + id, body);
   }
 
+  getAvailableUsers(id){
+    return this.http.get(this.BASE_URL + 'users/available/' + id)
+  }
+
   isAuthenticated() {
     return this.token !== null;
   }

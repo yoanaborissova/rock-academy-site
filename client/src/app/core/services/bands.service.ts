@@ -26,7 +26,7 @@ export class BandsService {
     }
 
     removeBandMember(id, member) {
-        return this.http.post(this.BASE_URL + 'band/add/member/' + id, member);
+        return this.http.post(this.BASE_URL + 'band/remove/member/' + id, member);
     }
 
     getBandDetails(id) {

@@ -47,6 +47,12 @@ export class UserProfileComponent implements OnInit, DoCheck {
         } else {
           this.hasBands = false;
         }
+
+        if (this.user.status !== 'Guest'){
+          this.isNotGuest = true;
+        } else {
+          this.isNotGuest = false;
+        }
       })
   }
 
@@ -55,12 +61,6 @@ export class UserProfileComponent implements OnInit, DoCheck {
       this.isOwner = true;
     } else {
       this.isOwner = false;
-    }
-
-    if (this.authService.status !== 'Guest'){
-      this.isNotGuest = true;
-    } else {
-      this.isNotGuest = false;
     }
   }
 

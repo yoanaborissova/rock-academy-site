@@ -1,0 +1,14 @@
+<section>
+    <div class="form">
+      <form #form="ngForm" (ngSubmit)="addComment()">
+        <p class="field">
+          <span class="input">
+            <textarea name="content" placeholder="Add comment" required ngModel></textarea>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <button class="button" [disabled]="form.invalid" type="submit">Add Comment</button>
+      </form>
+    </div>
+  </section>
+

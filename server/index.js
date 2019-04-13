@@ -7,6 +7,8 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const bandRoutes = require('./routes/band');
 const applicationRoutes = require('./routes/application');
+const articleRoutes = require('./routes/article');
+const commentRoutes = require('./routes/comment');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,7 +21,9 @@ app.use((req, res, next) => {
 
 app.use(authRoutes);
 app.use(bandRoutes);
-app.use(applicationRoutes)
+app.use(applicationRoutes);
+app.use(articleRoutes);
+app.use(commentRoutes);
 
 app.use((error, req, res, next) => {
   const status = error.statusCode || 500;

@@ -8,19 +8,22 @@
           {{band['description']}}
       </div>
       <br>
-      <h3>Members:</h3>
+      <h3 *ngIf="band['members']">Members:</h3>
       <div class="bandInfo" *ngIf="band['members']">
           <ul *ngFor="let member of band['members']">
             <li>
-              <a class="member" [routerLink]="[ 'profile/user', member['_id'] ]">{{member['username']}}</a>
+              <a class="member" [routerLink]="[ '/profile/user', member['_id'] ]">{{member['username']}}</a><a *ngIf="isAdmin" (click)="removeMember(band['_id'], member['_id'])" class="member"> [remove]</a>
             </li>
           </ul>
       </div>
       <br>
-      <div class="details">
+      <div class="details" *ngIf="isAdmin || isMember">
         <div class="controls">
           <ul>
-            <li class="action"><a id="adminBtn" [routerLink]="[ '/bands/edit', band[_id] ]" class="button">Edit</a></li>
+            <li class="action"><a id="adminBtn" [routerLink]="[ '/bands/edit', band['_id'] ]" class="button">Edit</a></li>
+            <li class="action"><a *ngIf="isMember" id="adminBtn" (click)="removeMember(band['_id'], userId)" class="button">Leave Band</a></li>
+            <li class="action"><a *ngIf="isAdmin" id="adminBtn" [routerLink]="[ '/bands/add/member', band['_id'] ]" class="button">Add Members</a></li>
+            <li class="action"><a *ngIf="isAdmin" id="adminBtn" (click)="deleteBand(band['_id'])" class="button">Delete Band</a></li>
           </ul>
         </div>
       </div>

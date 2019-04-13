@@ -1,3 +1,28 @@
-<p>
-  band-edit works!
-</p>
+<section>
+    <div class="form">
+      <form #form="ngForm" (ngSubmit)="editBand()" *ngIf="band">
+        <p class="field">
+          <label for="username" id="">Name</label>
+          <span class="input">
+            <input type="text" name="name" id="name" placeholder="Name" [(ngModel)]="band['name']" ngModel />
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field">
+          <label for="description">Description</label>
+          <span class="input">
+            <textarea type="description" name="description" id="description" placeholder="Description" [(ngModel)]="band['description']" ngModel></textarea>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field">
+          <label for="imageUrl">Image Url</label>
+          <span class="input">
+            <input type="text" name="imageUrl" placeholder="Image Url" [(ngModel)]="band['imageUrl']" ngModel/>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <button class="button" [disabled]="form.invalid" type="submit">Save</button>
+      </form>
+    </div>
+  </section>

@@ -1,0 +1,28 @@
+<section>
+    <div class="form">
+      <form #form="ngForm" (ngSubmit)="createArticle()">
+        <p class="field">
+          <label for="username" id="">Title</label>
+          <span class="input">
+            <input type="text" name="title" placeholder="Name" required ngModel />
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field">
+          <label for="description">Content</label>
+          <span class="input">
+            <textarea name="content" placeholder="Content" required ngModel></textarea>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <p class="field">
+          <label for="imageUrl">Image Url</label>
+          <span class="input">
+            <input type="text" name="imageUrl" placeholder="Image Url" ngModel/>
+            <span class="actions"></span>
+          </span>
+        </p>
+        <button class="button" [disabled]="form.invalid" type="submit">Add Article</button>
+      </form>
+    </div>
+  </section>

@@ -152,20 +152,23 @@ module.exports = {
     const bandId = req.params.id;
 
     try{
-    await Band.findByIdAndDelete(bandId)
+    await Band.findByIdAndDelete(bandId);
       
-    let user = await User.find({bands: {$in: [bandId]}})
+    let users = await User.find({bands: {$in: [bandId]}});
+    console.log(users);
 
-    user.bands = user.bands.filter(function(ele){
-      return ele != bandId;
-    });
-
-    await user.save();
+    if (users.length > 0){
+      for(let user of users){
+        user.bands = user.bands.filter(function(ele){
+          return ele != bandId;
+        });
+      }
+      await users.save();
+    }
 
     res.status(200)
       .json({
         message: 'Band deleted successfully.',
-        band
       })
     } catch(error) {
       res.status(500)
@@ -173,6 +176,8 @@ module.exports = {
             message: 'Something went wrong.',
             error
           })
+     
+          console.log(error);
     }
   }
 }

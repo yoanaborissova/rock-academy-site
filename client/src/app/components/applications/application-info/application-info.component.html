@@ -1,7 +1,7 @@
 <article class="post">
   <div class="post-content">
     <div class="bandInfo">
-      <h3><a  [routerLink]="[ '/auth/user/profile/', application['user'] ]">{{application['username']}}:</a></h3>
+      <h3><a  [routerLink]="[ '/profile/user', application['user'] ]">{{application['username']}}:</a></h3>
     </div>
     <div class="bandInfo">
         {{application['date'] | date: 'EEEE, MMMM d, y'}}

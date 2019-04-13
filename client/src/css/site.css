@@ -11,12 +11,11 @@ body {
     background-image: url("https://ak8.picdn.net/shutterstock/videos/1449028/thumb/1.jpg");
 }
 
-footer {
+.footer {
     background: black;
     color: chocolate;
     padding: 1em;
     position: relative; 
-    margin-left: 10px
 }
 
 header {

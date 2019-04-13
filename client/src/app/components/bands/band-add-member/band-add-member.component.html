@@ -1,0 +1,18 @@
+<section>
+    <div class="form">
+      <form #form="ngForm" (ngSubmit)="addMember()" *ngIf="users">
+        <p class="field">
+          <label for="username" id="">Users:</label>
+          <br>
+          <span class="input">
+            <select class="custom-select" name="member" ngModel required>
+                <option class="def" value="" selected="selected" hidden="hidden">Select user</option>
+                <option value="{{user['_id']}}" *ngFor="let user of users">{{user['username']}}</option>
+            </select>
+          </span>
+        </p>
+        <button class="button" [disabled]="form.invalid" type="submit">Add</button>
+      </form>
+    </div>
+  </section>
+

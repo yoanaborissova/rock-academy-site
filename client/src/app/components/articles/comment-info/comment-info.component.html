@@ -1,0 +1,7 @@
+<article class="post post-content">
+    <a [routerLink]="[ '/profile/user', comment['userId'] ]">{{comment['user']}}:</a>
+    <div>{{comment['content']}}</div>
+    <div class="info">
+      <a *ngIf="isOwner || isAdmin" (click)="deleteComment(comment['_id'])">[delete]</a>
+    </div>
+</article>
