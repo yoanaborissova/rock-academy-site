@@ -57,7 +57,7 @@ module.exports = {
 
             res.status(201)
               .json({
-                message: 'User created!',
+                message: 'Successful registration! Please log in!',
                 userId: user._id,
                 username: user.username,
                 token
@@ -68,7 +68,11 @@ module.exports = {
               error.statusCode = 500;
             }
 
-            next(error);
+            res.status(500)
+            .json({
+              message: 'This username was already taken.',
+              error
+            })
           });
       } else {
         const error = new Error('Passwords do not match');
@@ -95,7 +99,7 @@ module.exports = {
       })
       .then((user) => {
         if (!user) {
-          const error = new Error('A user with this username could not be found');
+          const error = new Error('An user with this username could not be found');
           error.statusCode = 401;
           throw error;
         }
@@ -115,19 +119,20 @@ module.exports = {
         });
 
         res.status(200).json({
-          message: 'User successfully logged in!',
+          message: `Welcome, ${user.username}!`,
           token,
           userId: user._id.toString(),
           username: user.username,
           isAdmin: user.roles.indexOf('Admin') != -1,
-          status: user.status
+          status: user.status,
+          bands: user.bands
         });
       })
       .catch(error => {
         res.status(500)
           .json({
-            message: 'Something went wrong.',
-            error
+            error,
+            message: 'Invalid credentials.'
           })
       })
   },

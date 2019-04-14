@@ -28,6 +28,10 @@ export class AuthService {
     return localStorage.getItem('status');
   }
 
+  get bands () {
+    return localStorage.getItem('bands');
+  }
+
   signUp(body: Object) {
     return this.http.post(this.BASE_URL + 'signup', body);
   }
@@ -67,6 +71,7 @@ export class AuthService {
     localStorage.setItem('userId', res['userId']);
     localStorage.setItem('isAdmin', res['isAdmin']);
     localStorage.setItem('status', res['status']);
+    localStorage.setItem('bands', res['bands']);
   }
 
 }

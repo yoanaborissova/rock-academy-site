@@ -1,7 +1,7 @@
 <section id="viewCatalog">
     <div class="posts">
         <a class="button" id="adminBtn" *ngIf="isAdmin" [routerLink]="[ 'create' ]">Add Article</a>
-        <app-article-info *ngFor="let article of allArticles"
+        <app-article-info *ngFor="let article of allArticles$ | async"
           [article]="article"
         ></app-article-info>
     </div>

@@ -14,7 +14,7 @@ export class BandsService {
     ) { }
 
     getAllBands() {
-        return this.http.get(this.BASE_URL + 'bands');
+        return this.http.get<BandInfo[]>(this.BASE_URL + 'bands');
     }
 
     createBand(body) {

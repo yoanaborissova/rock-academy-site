@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   logout() {
     localStorage.clear();
     this.router.navigate(['/home']);
+    this.toastrService.success('Successfully logged out!', 'Success!')
   }
 
 }

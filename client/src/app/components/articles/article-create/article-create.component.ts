@@ -23,6 +23,7 @@ export class ArticleCreateComponent implements OnInit {
     this.articlesService.createArticle(this.createForm.value)
     .subscribe((data) => {
       this.router.navigate(['/articles']);
+      console.log(data);
     })
   }
 }

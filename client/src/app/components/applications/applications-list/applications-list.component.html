@@ -3,6 +3,7 @@
       <app-application-info *ngFor="let application of applications"
         [application]="application"
         (approveEmitter)="approve($event)"
+        (disapproveEmitter)="disapprove($event)"
       ></app-application-info>
   </div>
 </section>

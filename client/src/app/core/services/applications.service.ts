@@ -21,7 +21,7 @@ export class ApplicationsService {
     }
 
     createApplication(body) {
-        return this.http.post(this.BASE_URL + 'application/create', body);
+        return this.http.post(this.BASE_URL + 'application/apply', body);
     }
 
     approveApplication(body) {

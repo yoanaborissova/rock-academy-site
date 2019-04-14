@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CommentsService } from 'src/app/core/services/comments.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-article-details',
@@ -16,7 +17,7 @@ export class ArticleDetailsComponent implements OnInit, DoCheck {
   article: ArticleInfo;
   isAdmin: boolean;
   isAuthed: boolean;
-  comments: CommentInfo[];
+  comments$: Observable<CommentInfo[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,10 +39,7 @@ export class ArticleDetailsComponent implements OnInit, DoCheck {
       this.article = data['article'];
     })
 
-    this.commentsService.getArticleComments(this.id)
-    .subscribe((data)=>{
-      this.comments = data['comments'];
-    })
+    this.comments$ = this.commentsService.getArticleComments(this.id);
   }
 
   ngDoCheck() {

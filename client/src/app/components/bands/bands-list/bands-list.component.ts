@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./bands-list.component.css']
 })
 export class BandsListComponent implements OnInit {
-  allBands: BandInfo[];
+  allBands$: Observable<BandInfo[]>;
   isAdmin: boolean;
 
   constructor(
@@ -20,14 +20,14 @@ export class BandsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.bandsService.getAllBands()
-      .subscribe((data) => {
-        this.allBands = data['resBands'];
-      })
+    // this.bandsService.getAllBands()
+    //   .subscribe((data) => {
+    //     this.allBands = data['resBands'];
+    //   })
 
-      this.isAdmin = this.authService.isAdmin();  
+    this.allBands$ = this.bandsService.getAllBands();
+
+    this.isAdmin = this.authService.isAdmin();  
   }
-
-  
 
 }

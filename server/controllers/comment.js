@@ -13,7 +13,7 @@ module.exports = {
       comments = comments.sort((a, b) => (b.date - a.date));
       res
           .status(200)
-          .json({ message: 'Fetched comments successfully.', comments });
+          .json(comments);
     })
     .catch((error) => {
       res.status(500)

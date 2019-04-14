@@ -29,7 +29,6 @@ export class JWTTokenInterceptor implements HttpInterceptor {
             tap((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse && req.url.endsWith('signin')){
                     this.authService.saveUserInfo(event.body);
-                    this.toastrService.success('Successfully logged in!', 'Success!');
                 }
             })
         )

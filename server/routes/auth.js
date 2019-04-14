@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { body } = require('express-validator/check');
 const authController = require('../controllers/auth');
-//const restrictedPages = require('../middleware/restrictedPages');
+const restrictedPages = require('../middleware/restrictedPages');
 
 router.post('/signup',
   [
@@ -18,7 +18,7 @@ router.post('/signup',
 , authController.signUp);
 router.post('/signin', authController.signIn);
 router.get('/profile/:id', authController.viewProfile);
-router.post('/profile/edit/:id', authController.editProfile);
-router.get('/users/available/:id', authController.getUsers);
+router.post('/profile/edit/:id', restrictedPages.isOwner, authController.editProfile);
+router.get('/users/available/:id', restrictedPages.isAdmin, authController.getUsers);
 
 module.exports = router;

@@ -42,4 +42,11 @@ export class ApplicationsListComponent implements OnInit {
       this.listApplications();
     })
   }
+
+  disapprove(id: string) {
+    this.applicationsService.disapproveApplication(id)
+    .subscribe((data) => {
+      this.listApplications();
+    })
+  }
 }

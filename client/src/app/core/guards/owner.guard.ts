@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
         providedIn: 'root'
     }
 )
-export class AuthGuard implements CanActivate {
+export class OwnerGuard implements CanActivate {
     path: import("@angular/router").ActivatedRouteSnapshot[];
     route: import("@angular/router").ActivatedRouteSnapshot;
     constructor(
@@ -22,11 +22,14 @@ export class AuthGuard implements CanActivate {
     
     canActivate(next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot){
-        if (this.authService.isAuthenticated()){
+        let url = state.url.split('/');
+        let id = url[url.length - 1];
+
+        if (id === this.authService.id || ((this.authService.bands !== null && this.authService.bands.includes(id)) || this.authService.isAdmin())){
             return true;
         } 
 
-        this.router.navigate(['auth/login']);
-        this.toastrService.warning('You have to be logged in to see this data.', 'Unauthorized');
+        this.router.navigate(['/home']);
+        this.toastrService.warning('You are not allowed into this page.', 'Unauthorized!');
     }
 }

@@ -11,24 +11,19 @@ import { Router } from '@angular/router';
 })
 export class ApplicationInfoComponent implements OnInit {
   @Input() application: ApplicationInfo
-  @Output() approveEmitter = new EventEmitter<string>()
+  @Output() approveEmitter = new EventEmitter<string>();
+  @Output() disapproveEmitter = new EventEmitter<string>()
   
-  constructor(
-    private applicationService: ApplicationsService,
-    private router: Router
-    ) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   approve(id) {
-    // this.applicationService.approveApplication(id)
-    // .subscribe((data) => {
-    //   console.log(data)
-    //   this.router.navigate(['/applications']);
-    // })
-
     this.approveEmitter.emit(id);
   }
 
+  disapprove(id) {
+    this.disapproveEmitter.emit(id);
+  }
 }

@@ -8,10 +8,7 @@ module.exports = {
         let resBands = bands.sort((a, b) => b.date - a.date)
         res
           .status(200)
-          .json({
-            message: 'Fetched bands successfully.',
-            resBands
-          });
+          .json(resBands)
       })
       .catch((error, res) => {
         res.status(500)
@@ -136,7 +133,7 @@ module.exports = {
 
     res.status(200)
       .json({
-        message: 'Member removed successfully.',
+        message: 'Membership ended.',
         band
       })
     } catch(error) {

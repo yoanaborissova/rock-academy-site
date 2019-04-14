@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { JWTTokenInterceptor } from './core/interceptors/jwt-token.interceptor';
 import { SharedModule } from './components/shared/shared.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { SuccessInterceptor } from './core/interceptors/success.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,12 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SuccessInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

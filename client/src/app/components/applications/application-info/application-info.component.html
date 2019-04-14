@@ -19,7 +19,7 @@
       <div class="controls" *ngIf="application['status']=='Pending'">
         <ul>
           <li class="action"><a (click)="approve(application['_id'])" class="button">Approve</a></li>
-          <li class="action"><a href="#" class="button">Disapprove</a></li>
+          <li class="action"><a (click)="disapprove(application['_id'])" class="button">Disapprove</a></li>
         </ul>
       </div>
     </div>

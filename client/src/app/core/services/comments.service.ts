@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CommentInfo } from 'src/app/components/shared/models/Comment-Info';
 
 @Injectable({
     providedIn: 'root'
@@ -21,7 +22,7 @@ export class CommentsService {
     }
 
     getArticleComments(id){
-        return this.http.get(this.BASE_URL + 'comments/' + id);
+        return this.http.get<CommentInfo[]>(this.BASE_URL + 'comments/' + id);
     }
 
     editComment(id, body){

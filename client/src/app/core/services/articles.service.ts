@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { ArticleInfo } from 'src/app/components/shared/models/Article-Info';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,7 @@ export class ArticlesService {
     ){}
 
     getAllArticles() {
-        return this.http.get(this.BASE_URL + 'articles');
+        return this.http.get<ArticleInfo[]>(this.BASE_URL + 'articles');
     }
 
     createArticle(body){

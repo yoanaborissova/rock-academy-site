@@ -8,7 +8,7 @@ module.exports = {
         let resArticles = articles.sort((a, b) => b.date - a.date)  
         res
           .status(200)
-          .json({ message: 'Fetched articles successfully.', resArticles });
+          .json(resArticles);
       })
       .catch((error, res) => {
         res.status(500)

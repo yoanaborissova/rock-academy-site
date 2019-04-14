@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { ArticleInfo } from '../../shared/models/Article-Info';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-articles-list',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./articles-list.component.css']
 })
 export class ArticlesListComponent implements OnInit, DoCheck {
-  allArticles: ArticleInfo;
+  allArticles$: Observable<ArticleInfo[]>;
   isAdmin: boolean;
 
   constructor(
@@ -18,10 +19,7 @@ export class ArticlesListComponent implements OnInit, DoCheck {
   ) { }
 
   ngOnInit() {
-    this.articlesService.getAllArticles()
-    .subscribe((data) => {
-      this.allArticles = data['resArticles'];
-    })
+    this.allArticles$ = this.articlesService.getAllArticles();
   }
 
   ngDoCheck() {

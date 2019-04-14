@@ -1,7 +1,7 @@
 <section id="viewCatalog">
   <div class="posts">
       <a class="button" id="adminBtn" *ngIf="isAdmin" [routerLink]="[ 'create' ]">Add Band</a>
-      <app-band-info *ngFor="let band of allBands"
+      <app-band-info *ngFor="let band of allBands$ | async"
         [band]="band"
       ></app-band-info>
   </div>
