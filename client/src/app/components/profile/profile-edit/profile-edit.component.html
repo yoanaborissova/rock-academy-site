@@ -18,7 +18,7 @@
         <p class="field" *ngIf="isNotGuest">
             <label for="instruments" id="">Instruments you want to learn</label>
             <span class="input">
-                <textarea type="text" rows="4" name="instruments" id="content" pattern="^(\w+[, ]+)*\w+$" placeholder="Please write the instruments splitted by coma and space" required [(ngModel)]="user['instruments']" ngModel></textarea>
+                <textarea type="text" rows="4" name="instruments" id="content" pattern="^(\w+[, ]+)*\w+$" placeholder="Please write the instruments splitted by coma and space" required [(ngModel)]="instruments" ngModel></textarea>
                 <span class="actions"></span>
             </span>
           </p>

@@ -32,11 +32,11 @@ export class BandDetailsComponent implements OnInit, DoCheck {
 
     this.bandsService.getBandDetails(this.id)
     .subscribe((data) => {
-      this.band = data['band'];
+      this.band = data;
 
       for (let member of this.band.members) {
         if (member['_id'] === this.authService.id){
-          this.isMember = true;
+          this.isMember = true;        
         }
       }
     })

@@ -23,7 +23,7 @@ export class ArticlesService {
     }
 
     getArticleDetails(id) {
-        return this.http.get(this.BASE_URL + 'article/details/' + id)
+        return this.http.get<ArticleInfo>(this.BASE_URL + 'article/details/' + id)
     }
 
     editArticle (id, body) {

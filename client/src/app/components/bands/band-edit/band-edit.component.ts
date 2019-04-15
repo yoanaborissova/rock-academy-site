@@ -28,16 +28,14 @@ export class BandEditComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.bandsService.getBandDetails(this.id)
-    .subscribe((data) => {
-      this.band = data['band'];
+    this.band = this.route.snapshot.data['band'];
 
-      for (let member of this.band.members) {
-        if (member['_id'] === this.authService.id){
-          this.isMember = true;
-        }
+    for (let member of this.band.members) {
+      if (member['_id'] === this.authService.id) {
+        this.isMember = true;
       }
-    })
+    }
+
   }
 
   ngDoCheck() {
@@ -46,8 +44,8 @@ export class BandEditComponent implements OnInit, DoCheck {
 
   editBand() {
     this.bandsService.editBand(this.band._id, this.editForm.value)
-    .subscribe((data) => {
-      this.router.navigate(['/bands/details/', this.id])
-    })
+      .subscribe((data) => {
+        this.router.navigate(['/bands/details/', this.id])
+      })
   }
 }

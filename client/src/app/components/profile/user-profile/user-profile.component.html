@@ -9,7 +9,7 @@
           {{user['about']}}
       </div>
       <br>
-      <h3 *ngIf="isNotGuest">Instruments:</h3>
+      <h3 *ngIf="status === 'Student' || status === 'Musician'">Instruments:</h3>
       <div class="bandInfo" *ngIf="user['instruments']">
             <ul *ngFor="let instrument of user['instruments']">
             <li>
@@ -17,12 +17,12 @@
             </li>
           </ul>
       </div>
-      <br *ngIf="bands">
-      <h3 *ngIf="bands">Bands:</h3>
-      <div class="bandInfo" *ngIf="bands">
-          <ul *ngFor="let band of bands">
+      <br *ngIf="status === 'Musician'">
+      <h3 *ngIf="status === 'Musician'">Bands:</h3>
+      <div class="bandInfo" *ngIf="status === 'Musician'">
+          <ul *ngFor="let band of bands$ | async">
             <li>
-              <a class="member" [routerLink]="[ '/bands/details', band['id'] ]">{{band['name']}}</a>
+              <a class="member" [routerLink]="[ '/bands/details', band['_id'] ]">{{band['name']}}</a>
             </li>
           </ul>
       </div>

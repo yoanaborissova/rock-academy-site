@@ -42,10 +42,7 @@ module.exports = {
     Band.findById(bandId).populate('members')
       .then((band) => {
         res.status(200)
-          .json({
-            message: 'Band fetched successfully!',
-            band
-          })
+          .json(band)
       })
       .catch((error) => {
         res.status(500)
@@ -176,5 +173,24 @@ module.exports = {
      
           console.log(error);
     }
+  },
+  getUserBands: (req, res) => {
+    const id = req.params.id;
+
+    Band.find({
+      'members': id 
+    })
+    .then((bands) => {
+      res
+      .status(200)
+          .json(bands)
+    })
+    .catch((error, res) => {
+      res.status(500)
+        .json({
+          message: 'Something went wrong.',
+          error
+        })
+    });
   }
 }

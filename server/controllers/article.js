@@ -41,20 +41,8 @@ module.exports = {
     
     Article.findById(articleId)
     .then((article) => {
-      let arr = [];
-      Comment.find()
-        .then((comments) => {
-          
-          comments = comments.filter(function(ele){
-            return ele.article == articleId;
-        }).sort((a, b) => (b.date - a.date))
         res.status(200)
-        .json({
-          message: 'Details fetched successfully.',
-          article,
-          comments
-        })
-        })
+        .json(article)
     })
     .catch((error) => {
       res.status(500)

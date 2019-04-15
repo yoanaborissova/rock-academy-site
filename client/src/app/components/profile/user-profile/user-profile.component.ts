@@ -1,9 +1,10 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UserInfo } from '../../shared/models/User-Info';
 import { BandInfo } from '../../shared/models/Band-Info';
 import { BandsService } from 'src/app/core/services/bands.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,11 +14,10 @@ import { BandsService } from 'src/app/core/services/bands.service';
 export class UserProfileComponent implements OnInit, DoCheck {
   id: string
   user: UserInfo
-  bands: any
+  bands$: Observable<BandInfo[]>;
   isOwner: boolean
-  isNotGuest: boolean;
-  hasBands: boolean;
-  
+  status: string;
+
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
@@ -25,39 +25,19 @@ export class UserProfileComponent implements OnInit, DoCheck {
   ) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
+    this.route.params.subscribe(routeParams => {
+      this.authService.getUserProfile(routeParams.id)
+        .subscribe((data) => {
+          this.user = data;
 
-    this.authService.getUserProfile(this.id)
-      .subscribe((data) => {
-        this.user = data['user'];
-        this.bands = [];
-        
-        for (let band of this.user['bands']){
-          this.bandsService.getBandDetails(band)
-          .subscribe((data) => {
-            this.bands.push({
-              'id': band,
-              'name': data['band']['name']
-            })
-          })
-        }
-
-        if (this.bands.length !== 0){
-          this.hasBands = true;
-        } else {
-          this.hasBands = false;
-        }
-
-        if (this.user.status !== 'Guest'){
-          this.isNotGuest = true;
-        } else {
-          this.isNotGuest = false;
-        }
-      })
+          this.status = this.user['status'];
+          this.bands$ = this.bandsService.getUserBands(routeParams.id);
+        })
+    });
   }
 
   ngDoCheck() {
-    if (this.route.snapshot.params['id'] === this.authService.id){
+    if (this.route.snapshot.params['id'] === this.authService.id) {
       this.isOwner = true;
     } else {
       this.isOwner = false;

@@ -17,6 +17,10 @@ export class BandsService {
         return this.http.get<BandInfo[]>(this.BASE_URL + 'bands');
     }
 
+    getUserBands(id){
+        return this.http.get<BandInfo[]>(this.BASE_URL + 'band/user/' + id);
+    }
+
     createBand(body) {
         return this.http.post(this.BASE_URL + 'band/create', body);
     }
@@ -40,6 +44,4 @@ export class BandsService {
     deleteBand(id, body) {
         return this.http.post(this.BASE_URL + 'band/delete/' + id, body);
     }
-
-    
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { UserInfo } from 'src/app/components/shared/models/User-Info';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class AuthService {
   }
 
   getUserProfile(id) {
-    return this.http.get(this.BASE_URL + 'profile/' + id);
+    return this.http.get<UserInfo>(this.BASE_URL + 'profile/' + id);
   }
 
   editUserProfile(id, body){

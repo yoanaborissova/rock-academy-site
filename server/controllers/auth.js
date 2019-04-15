@@ -142,10 +142,7 @@ module.exports = {
     User.findById(userId)
       .then((user) => {
         res.status(200)
-          .json({
-            message: 'Profile fetched successfully.',
-            user,
-          })
+          .json(user)
       })
       .catch((error) => {
         res.status(500)

@@ -34,10 +34,7 @@ export class ArticleDetailsComponent implements OnInit, DoCheck {
   loadData() {
     this.id = this.route.snapshot.params['id'];
 
-    this.articlesService.getArticleDetails(this.id)
-    .subscribe((data) => {
-      this.article = data['article'];
-    })
+    this.article = this.route.snapshot.data['article'];
 
     this.comments$ = this.commentsService.getArticleComments(this.id);
   }

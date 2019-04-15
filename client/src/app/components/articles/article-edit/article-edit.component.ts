@@ -23,10 +23,7 @@ export class ArticleEditComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     
-    this.articlesService.getArticleDetails(this.id)
-    .subscribe((data) => {
-      this.article = data['article'];
-    })
+    this.article = this.route.snapshot.data['article'];
   }
 
   editArticle() {

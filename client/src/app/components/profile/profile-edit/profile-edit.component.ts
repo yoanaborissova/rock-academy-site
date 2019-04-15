@@ -14,7 +14,8 @@ export class ProfileEditComponent implements OnInit, DoCheck {
   @ViewChild('form') editForm: NgForm;
   user: UserInfo
   id: string
-  isNotGuest: boolean
+  isNotGuest: boolean;
+  instruments: string;
 
   constructor(
     private authService: AuthService,
@@ -25,11 +26,10 @@ export class ProfileEditComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.authService.getUserProfile(this.id)
-    .subscribe((data) => {
-      this.user = data['user'];
-      this.user['instruments'] = data['user']['instruments'].join(', ');
-    })
+    this.user = this.route.snapshot.data['user'];
+    
+    this.instruments = this.user['instruments'].join(', ');
+    
   }
 
   ngDoCheck() {
