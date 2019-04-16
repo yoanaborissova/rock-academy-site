@@ -1,1 +1,65 @@
-@import '../src/css/site.css';
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background: brown;
+    background-image: url("https://ak8.picdn.net/shutterstock/videos/1449028/thumb/1.jpg");
+}
+
+a {
+    text-decoration: none;
+    color: chocolate;
+}
+
+a:hover {
+    color: white;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: peru;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5em 2em;
+    margin: 0.25em;
+    background: chocolate;
+    border-radius: 1em;
+    color: black;
+}
+
+.button-body {
+    display: inline-block;
+    padding: 0.5em 2em;
+    margin: 0.25em;
+    background: black;
+    border-radius: 1em;
+    color: chocolate;
+}
+
+.button:hover {
+    color: white;
+}
+
+.greeting {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    color: chocolate;
+}
+
+main {
+    padding: 2em;
+}

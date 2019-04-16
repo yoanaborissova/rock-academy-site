@@ -8,6 +8,8 @@
             <span class="actions"></span>
           </span>
         </p>
+        <p class="error" *ngIf="form.controls.title?.touched && form.controls.title?.errors?.required">This field
+          is required.</p>
         <p class="field">
           <label for="description">Content</label>
           <span class="input">
@@ -15,6 +17,8 @@
             <span class="actions"></span>
           </span>
         </p>
+        <p class="error" *ngIf="form.controls.content?.touched && form.controls.content.errors?.required">This field
+          is required.</p>
         <p class="field">
           <label for="imageUrl">Image Url</label>
           <span class="input">

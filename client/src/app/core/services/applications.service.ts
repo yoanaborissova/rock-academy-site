@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApplicationInfo } from 'src/app/components/shared/models/Application-Info';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +14,7 @@ export class ApplicationsService {
     ) { }
 
     getAllApplications() {
-        return this.http.get(this.BASE_URL + 'applications');
+        return this.http.get<ApplicationInfo[]>(this.BASE_URL + 'applications');
     }
 
     getUserApplications(id){

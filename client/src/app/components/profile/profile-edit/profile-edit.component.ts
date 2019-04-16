@@ -24,12 +24,9 @@ export class ProfileEditComponent implements OnInit, DoCheck {
   ) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
-
     this.user = this.route.snapshot.data['user'];
     
     this.instruments = this.user['instruments'].join(', ');
-    
   }
 
   ngDoCheck() {

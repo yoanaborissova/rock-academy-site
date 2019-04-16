@@ -15,3 +15,7 @@ img {
 a {
     cursor: pointer
 }
+
+#adminBtn:hover {
+    color: white
+}

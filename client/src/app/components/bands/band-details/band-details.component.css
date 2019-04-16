@@ -8,10 +8,18 @@ img {
     color: chocolate;
 }
 
+#adminBtn:hover {
+    color: white
+}
+
 .member {
     color: black;
 }
 
 a {
     cursor: pointer
+}
+
+a:hover {
+    color: white
 }

@@ -120,3 +120,16 @@ form textarea:focus {
 	color: chocolate;
 	cursor: pointer;
 }
+
+button {
+	cursor: pointer;
+}
+
+button[disabled=disabled], button:disabled {
+    cursor: not-allowed;
+}
+
+.error {
+	color: darkred;
+}
+	

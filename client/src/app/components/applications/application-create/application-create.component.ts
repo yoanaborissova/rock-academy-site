@@ -3,6 +3,7 @@ import { ApplicationsService } from 'src/app/core/services/applications.service'
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-application-create',
@@ -16,7 +17,8 @@ export class ApplicationCreateComponent implements OnInit {
   constructor(
     private applicationService: ApplicationsService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -26,9 +28,9 @@ export class ApplicationCreateComponent implements OnInit {
   createApplication(){
     this.applicationService.createApplication(this.createApplicationForm.value)
     .subscribe((data) => {
-      console.log(data);
+      this.router.navigate(['/home']);
+      this.toastrService.info('Our team will examine your request as soon as possible!', 'Successful application!')
     })
 
-    this.router.navigate(['/home']);
   }
 }

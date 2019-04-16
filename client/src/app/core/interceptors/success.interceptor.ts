@@ -14,7 +14,6 @@ export class SuccessInterceptor implements HttpInterceptor {
         .pipe(
             tap((event: HttpEvent<any>) => {
                 let notify: boolean = req.url.includes('create') ||
-                req.url.includes('apply') ||
                 req.url.includes('signin') || 
                 req.url.includes('signup') ||
                 req.url.includes('edit') ||
@@ -24,7 +23,7 @@ export class SuccessInterceptor implements HttpInterceptor {
                 req.url.includes('add');
 
                 if (event instanceof HttpResponse && notify){
-                    this.toastrService.success(event.body.message, 'Success!');
+                    this.toastrService.success(event.body.message);
                 }
             })
         )

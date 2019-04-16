@@ -17,6 +17,7 @@ export class ApplicationInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.application);
   }
 
   approve(id) {

@@ -20,41 +20,7 @@
     padding: 10px;
   }
   
-  .thumbnail img {
-    margin-top: auto;
-    margin-bottom: auto;
-    height: auto;
-    width: auto;
-    width: 220px;
-    height: 150px;
-  }
-  
-  .rank {
-    width: 30px;
-    text-align: center;
-    color: #999999;
-    font-weight: bold;
-  }
-  
-  .rank>span {
-    position: relative;
-    top: 1.5em;
-  }
-  
-  .voting {
-    width: 50px;
-    text-align: center;
-    color: #999999;
-    font-weight: bold;
-  }
-  
-  .thumbnail {
-    width: 100px;
-    text-align: center;
-  }
-  
   .post-content {
-    /* display: block; */
     vertical-align: top;
     padding: 10px;
   }
@@ -62,18 +28,6 @@
   .title a {
     font-size: 1.25em;
     text-decoration: none;
-  }
-  
-  .details {
-    margin-top: 10px;
-  }
-  
-  .info {
-    color: #999999;
-  }
-  
-  .controls {
-    overflow: auto;
   }
   
   .controls .action {
@@ -87,43 +41,6 @@
   }
   
   .controls .action a:hover {
-    color: #000000;
-  }
-  
-  .arrow {
-    font-size: 2em;
-    line-height: 0.75em;
-    cursor: pointer;
-  }
-  
-  .arrow:hover {
-    color: #000000;
-  }
-  
-  .arrow.clicked {
-    color: #ffffff;
-  }
-  
-  #commentForm>* {
-    display: block;
-    width: 400px;
-    box-sizing: border-box;
-  }
-  
-  #commentForm>label {
-    margin-top: 10px;
-  }
-  
-  #commentForm>textarea {
-    resize: none;
-    height: 6em;
-  }
-  
-  #commentForm>input[type="submit"] {
-    margin-top: 10px;
-    width: 100px;
-  }
-
-  a {
+    color: white;
     cursor: pointer
   }

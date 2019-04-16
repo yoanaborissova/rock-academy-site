@@ -12,3 +12,11 @@ img {
 .member {
     color: black;
 }
+
+#adminBtn:hover {
+    color: white
+}
+
+a:hover {
+    color: white
+}

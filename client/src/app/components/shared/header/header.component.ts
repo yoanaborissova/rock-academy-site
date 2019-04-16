@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   logout() {
     localStorage.clear();
     this.router.navigate(['/home']);
-    this.toastrService.success('Successfully logged out!', 'Success!')
+    this.toastrService.success('Successfully logged out!');
   }
 
 }

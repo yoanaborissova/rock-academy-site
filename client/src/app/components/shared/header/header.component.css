@@ -5,3 +5,62 @@ p {
 a {
     cursor: pointer
 }
+
+header {
+    background: black;
+    padding-left: 1em; 
+    padding-right: 1em;
+    padding: 2em;
+    position: relative;    
+}
+
+.logo {
+    font-size: 2.5em;
+    margin-left: 1em;
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    color: chocolate;
+}
+
+#logo {
+    font-family: 'Dancing Script', cursive;
+}
+
+a {
+    text-decoration: none;
+    color: chocolate;
+}
+
+a:hover {
+    color: white;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: peru;
+    text-align: center;
+}
+
+.menu {
+    display: block;
+}
+
+.menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5em 2em;
+    margin: 0.25em;
+    background: chocolate;
+    border-radius: 1em;
+    color: black;
+}

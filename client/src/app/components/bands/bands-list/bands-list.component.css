@@ -2,3 +2,7 @@
     background-color: black;
     color: chocolate;
 }
+
+#adminBtn:hover{
+    color: white
+}

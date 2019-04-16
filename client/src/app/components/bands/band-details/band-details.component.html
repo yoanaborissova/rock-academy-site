@@ -22,7 +22,7 @@
           <ul>
             <li class="action"><a id="adminBtn" [routerLink]="[ '/bands/edit', band['_id'] ]" class="button">Edit</a></li>
             <li class="action"><a *ngIf="isMember" id="adminBtn" (click)="removeMember(band['_id'], userId)" class="button">Leave Band</a></li>
-            <li class="action"><a *ngIf="isAdmin" id="adminBtn" [routerLink]="[ '/bands/add/member', band['_id'] ]" class="button">Add Members</a></li>
+            <li class="action"><a *ngIf="isAdmin" id="adminBtn" [routerLink]="[ '/bands/add/member', band['_id'] ]" class="button">Add Member</a></li>
             <li class="action"><a *ngIf="isAdmin" id="adminBtn" (click)="deleteBand(band['_id'])" class="button">Delete Band</a></li>
           </ul>
         </div>

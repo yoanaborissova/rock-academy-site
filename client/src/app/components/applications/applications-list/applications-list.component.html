@@ -1,6 +1,6 @@
 <section id="viewCatalog">
   <div class="posts">
-      <app-application-info *ngFor="let application of applications"
+      <app-application-info *ngFor="let application of applications$ | async"
         [application]="application"
         (approveEmitter)="approve($event)"
         (disapproveEmitter)="disapprove($event)"

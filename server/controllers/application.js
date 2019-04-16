@@ -25,13 +25,11 @@ module.exports = {
     },
     getAllApplications: (req, res) => {
         Application.find()
+        .populate('user')
         .then((applications) => {
             applications = applications.sort((a, b) => (b.date - a.date));
             res.status(200)
-                .json({
-                    message: 'Applications fetched successfully.',
-                    applications,
-                })
+                .json(applications);
         })
         .catch((error) => {
             res.status(500)

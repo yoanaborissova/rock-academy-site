@@ -4,10 +4,12 @@
         <p class="field">
           <label for="username" id="">Name</label>
           <span class="input">
-            <input type="text" name="name" id="name" placeholder="Name" ngModel />
+            <input type="text" name="name" id="name" placeholder="Name" required ngModel />
             <span class="actions"></span>
           </span>
         </p>
+        
+        <p class="error" *ngIf="form.controls.name?.touched && form.controls.name.errors?.required">This field is required.</p>
         <p class="field">
           <label for="description">Description</label>
           <span class="input">
