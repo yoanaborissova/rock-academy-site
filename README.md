@@ -9,8 +9,8 @@ The idea of the site is to be used by Rock Academy Dupnitsa for both publicity o
 * Members part contains: 
 	* __Applications__: there are listed all applications from users who want to join the academy, which can be approved or disapproved by the team.
 ## Roles
-* __Anonymous users__: People who haven't authenticated into the see can only see articles, bands and profiles of other users.
-* __Logged in users__ have three different roles (statuses) changed by the team.
+* __Anonymous users__: People who haven't authenticated into the site can only see articles, bands and profiles of other users.
+* __Logged in users__ have three different roles (statuses) which can be changed by the team.
 	* __Guests__ are allowed to add comments to the articles and apply for membership in the academy. When an user makes a registration in the site, his default status is guest.
 	* __Students__ are users whose applications have been approved. In their profiles, they get a list of the intruments they play.
 	* __Musicians__ are students, who have been added to bands by administrators. They are allowed to edit the bands they are members of and leave them if they want to.
