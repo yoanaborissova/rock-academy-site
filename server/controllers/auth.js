@@ -23,7 +23,7 @@ module.exports = {
   signUp: (req, res, next) => {
 
     if (validateUser(req, res)) {
-      const {
+      let {
         username,
         password,
         repeatPassword,
@@ -33,9 +33,16 @@ module.exports = {
         instruments,
         profilePicture
       } = req.body;
+
       if (password === repeatPassword) {
         const salt = encryption.generateSalt();
         const hashedPassword = encryption.generateHashedPassword(salt, password);
+
+        if (about === ''){
+          about = 'No information added.';
+        } if (profilePicture === ''){
+          profilePicture = 'http://wallperio.com/data/out/371/profile-pictures_617151281.jpg';
+        }
 
         User.create({
             username,

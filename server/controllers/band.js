@@ -19,7 +19,14 @@ module.exports = {
       });
   },
   createBand: (req, res) => {
-    const bandObj = req.body;
+    let bandObj = req.body;
+
+    if (bandObj.imageUrl === ''){
+      bandObj.imageUrl = 'https://bigriverequipment.com/wp-content/uploads/2017/10/no-photo-available.png';
+    } if (bandObj.description === ''){
+      bandObj.description = 'No information added.'
+    }
+
     Band.create(bandObj)
       .then((band) => {
         res.status(200)

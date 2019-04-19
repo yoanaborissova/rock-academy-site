@@ -19,7 +19,12 @@ module.exports = {
       });
   },
   createArticle: (req, res) => {
-    const articleObj = req.body;
+    let articleObj = req.body;
+
+    if (articleObj.imageUrl === ''){
+      articleObj.imageUrl = 'https://bigriverequipment.com/wp-content/uploads/2017/10/no-photo-available.png';
+    }
+
     Article.create(articleObj)
     .then((article) => {
       res.status(200)
