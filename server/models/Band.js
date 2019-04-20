@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const bandSchema = new mongoose.Schema({
     name: { type: mongoose.Schema.Types.String, required: true, unique: true},
-    description: { type: mongoose.Schema.Types.String, default: 'No information added.' },
+    description: { type: mongoose.Schema.Types.String },
     imageUrl: { type: mongoose.Schema.Types.String },
     members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
 });

@@ -20,10 +20,8 @@ export class BandCreateComponent implements OnInit {
   }
 
   createBand() {
-    console.log('here');
     this.bandsService.createBand(this.form.value)
     .subscribe((data) => {
-      console.log(data);
 
       this.router.navigate(['/bands']);
     })
